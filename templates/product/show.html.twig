@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+
+    <h1>Produit : {{ product.name }}</h1>
+
+    <p>Prix : <b>{{ product.price }}€</b></p>
+    <p>Description : {{ product.description }}</p>
+
+    <p class="text-danger">
+        {% if product.overPrice %}
+            <p class="text-danger">Ce produit semble cher.</p>
+        {% else %}
+            <p class="text-success">Le prix semble raisonnable.</p>
+        {% endif %}
+    </p>
+
+    <a href="{{ path('app_product') }}" class="btn btn-sm btn-primary">Retour aux produits</a>
+{% endblock %}
