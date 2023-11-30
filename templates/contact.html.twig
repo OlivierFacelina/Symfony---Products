@@ -1,4 +1,39 @@
 {% extends 'base.html.twig' %}
+
+{% set majority = 18 %}
+
 {% block container %}
     <h1>Ma page contact</h1>
+
+    <ul>
+        <li>Il y a un étudiant qui se nomme {{ etudiant1.prenom }} et son nom est {{ etudiant1.nom }}.</li>
+        <li>Il y a un étudiant qui se nomme {{ etudiant2.prenom }} et son nom est {{ etudiant2.nom }}.</li>
+    </ul>
+
+    {% include 'tuto-twig/_card_etudiant.html.twig' with {"etudiant" : etudiant1 } %}
+    {% include 'tuto-twig/_card_etudiant.html.twig' with {"etudiant" : etudiant2 } %}
+
+    {# <p>{{ prenom }}</p> #}
+
+    {# Ceci est un commentaire #}
+    {# {% if age >= 18 %}
+        <p>{{ prenom }} est majeur !</p>
+    {% else %}
+        <p>{{ prenom }} est mineur !</p>
+    {% endif %}   #}
+
+    {# Opération ternaire #}
+    {# {{ age >= 18 ? 'Il est majeur' : 'Il est mineur' }}  
+
+    <ul>
+        {% for i in 1..10 %}
+            <li>Numéro : {{ i }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for ville in villes %}
+            <li>{{ ville }}</li>
+        {% endfor %}
+    </ul> #}
 {% endblock %}
